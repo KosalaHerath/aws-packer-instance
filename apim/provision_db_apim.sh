@@ -5,7 +5,7 @@ echo "Running DB scripts for WSO2-APIM..."
 
 #Define parameter values for Database Engine and Version
 
-DB_ENGINE='CF_DBMS'
+DB_ENGINE='CF_DBMS_NAME'
 DB_ENGINE_VERSION='CF_DBMS_VERSION'
 WSO2_PRODUCT_VERSION='CF_PRODUCT_VERSION'
 
