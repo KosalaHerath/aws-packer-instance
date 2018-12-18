@@ -16,13 +16,11 @@ if [[[ $DB_ENGINE = "postgres" ]] && [[ $WSO2_PRODUCT_VERSION = "2.1.0" ]]]; the
     echo "Postgres DB Engine Selected! Running WSO2-APIM 2.1.0 DB Scripts for Postgres..."
     export PGPASSWORD=CF_DB_PASSWORD
     psql -U CF_DB_USERNAME -h CF_DB_HOST -p CF_DB_PORT -d postgres -f /home/ubuntu/apim/apim210/apim_postgres.sql
-
 elif [[[ $DB_ENGINE = "postgres" ]] && [[$WSO2_PRODUCT_VERSION = "2.6.0" ]]]; then
     # DB Engine : Postgres | Product Version : 2.1.0
     echo "Postgres DB Engine Selected! Running WSO2-APIM 2.6.0 DB Scripts for Postgres..."
     export PGPASSWORD=CF_DB_PASSWORD
     psql -U CF_DB_USERNAME -h CF_DB_HOST -p CF_DB_PORT -d postgres -f /home/ubuntu/apim/apim260/apim_postgres.sql
-
 elif [[[ $DB_ENGINE = "mysql" ]] && [[ $WSO2_PRODUCT_VERSION = "2.1.0" ]]]; then
     # DB Engine : Postgres | Product Version : 2.1.0
     echo "MySQL DB Engine Selected! Running WSO2-APIM 2.1.0 DB Scripts for MySQL..."
@@ -54,7 +52,6 @@ elif [[[ $DB_ENGINE =~ 'oracle-se' ]] && [[ $WSO2_PRODUCT_VERSION = "2.1.0" ]]];
     echo exit | sqlplus64 WSO2AM_COMMON_DB/CF_DB_PASSWORD@//CF_DB_HOST:CF_DB_PORT/WSO2AMDB @/home/ubuntu/apim/apim210/apim_oracle_common_db.sql
     echo exit | sqlplus64 WSO2AM_APIMGT_DB/CF_DB_PASSWORD@//CF_DB_HOST:CF_DB_PORT/WSO2AMDB @/home/ubuntu/apim/apim210/apim_oracle_apimgt_db.sql
     mysql -u CF_DB_USERNAME -pCF_DB_PASSWORD -h CF_DB_HOST -P CF_DB_PORT < /home/ubuntu/apim/apim260/apim_mysql.sql
-
 elif [[[ $DB_ENGINE =~ 'oracle-se' ]] && [[ $WSO2_PRODUCT_VERSION = "2.6.0" ]]]; then
     # DB Engine : Postgres | Product Version : 2.1.0
     echo "Oracle DB Engine Selected! Running WSO2-APIM 2.6.0 DB Scripts for Oracle..."
@@ -69,15 +66,12 @@ elif [[[ $DB_ENGINE =~ 'oracle-se' ]] && [[ $WSO2_PRODUCT_VERSION = "2.6.0" ]]];
     echo exit | sqlplus64 CF_DB_USERNAME/CF_DB_PASSWORD@//CF_DB_HOST:CF_DB_PORT/WSO2AMDB @/home/ubuntu/apim/apim260/apim_oracle_user.sql
     echo exit | sqlplus64 WSO2AM_COMMON_DB/CF_DB_PASSWORD@//CF_DB_HOST:CF_DB_PORT/WSO2AMDB @/home/ubuntu/apim/apim260/apim_oracle_common_db.sql
     echo exit | sqlplus64 WSO2AM_APIMGT_DB/CF_DB_PASSWORD@//CF_DB_HOST:CF_DB_PORT/WSO2AMDB @/home/ubuntu/apim/apim260/apim_oracle_apimgt_db.sql
-
 elif [[[ $DB_ENGINE =~ 'sqlserver-se' ]] && [[ $WSO2_PRODUCT_VERSION = "2.1.0" ]]]; then
     # DB Engine : Postgres | Product Version : 2.1.0
     echo "SQL Server DB Engine Selected! Running WSO2-APIM 2.1.0 DB Scripts for SQL Server..."
     sqlcmd -S CF_DB_HOST -U CF_DB_USERNAME -P CF_DB_PASSWORD -i /home/ubuntu/apim/apim210/apim_sql_server.sql
-
 elif [[[ $DB_ENGINE =~ 'sqlserver-se' ]] && [[ $WSO2_PRODUCT_VERSION = "2.6.0" ]]]; then
     # DB Engine : Postgres | Product Version : 2.1.0
     echo "SQL Server DB Engine Selected! Running WSO2-APIM 2.6.0 DB Scripts for SQL Server..."
     sqlcmd -S CF_DB_HOST -U CF_DB_USERNAME -P CF_DB_PASSWORD -i /home/ubuntu/apim/apim260/apim_sql_server.sql
-
 fi
