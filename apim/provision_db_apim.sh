@@ -51,7 +51,6 @@ elif [[[ $DB_ENGINE =~ 'oracle-se' ]] && [[ $WSO2_PRODUCT_VERSION = "2.1.0" ]]];
     echo exit | sqlplus64 CF_DB_USERNAME/CF_DB_PASSWORD@//CF_DB_HOST:CF_DB_PORT/WSO2AMDB @/home/ubuntu/apim/apim210/apim_oracle_user.sql
     echo exit | sqlplus64 WSO2AM_COMMON_DB/CF_DB_PASSWORD@//CF_DB_HOST:CF_DB_PORT/WSO2AMDB @/home/ubuntu/apim/apim210/apim_oracle_common_db.sql
     echo exit | sqlplus64 WSO2AM_APIMGT_DB/CF_DB_PASSWORD@//CF_DB_HOST:CF_DB_PORT/WSO2AMDB @/home/ubuntu/apim/apim210/apim_oracle_apimgt_db.sql
-    mysql -u CF_DB_USERNAME -pCF_DB_PASSWORD -h CF_DB_HOST -P CF_DB_PORT < /home/ubuntu/apim/apim260/apim_mysql.sql
 elif [[[ $DB_ENGINE =~ 'oracle-se' ]] && [[ $WSO2_PRODUCT_VERSION = "2.6.0" ]]]; then
     # DB Engine : Oracle | Product Version : 2.6.0
     echo "Oracle DB Engine Selected! Running WSO2-APIM 2.6.0 DB Scripts for Oracle..."
