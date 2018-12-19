@@ -16,7 +16,7 @@ if [[ $DB_ENGINE = "postgres" ]] && [[ $WSO2_PRODUCT_VERSION = "2.1.0" ]]; then
     echo "Postgres DB Engine Selected! Running WSO2-APIM 2.1.0 DB Scripts for Postgres..."
     export PGPASSWORD=CF_DB_PASSWORD
     psql -U CF_DB_USERNAME -h CF_DB_HOST -p CF_DB_PORT -d postgres -f /home/ubuntu/apim/apim210/apim_postgres.sql
-elif [[ $DB_ENGINE = "postgres" ]] && [[$WSO2_PRODUCT_VERSION = "2.6.0" ]]; then
+elif [[ $DB_ENGINE = "postgres" ]] && [[ $WSO2_PRODUCT_VERSION = "2.6.0" ]]; then
     # DB Engine : Postgres | Product Version : 2.6.0
     echo "Postgres DB Engine Selected! Running WSO2-APIM 2.6.0 DB Scripts for Postgres..."
     export PGPASSWORD=CF_DB_PASSWORD
