@@ -48,9 +48,9 @@ elif [[ $DB_ENGINE =~ 'oracle-se' ]] && [[ $WSO2_PRODUCT_VERSION = "2.1.0" ]]; t
     echo "CREATE USER WSO2AM_APIMGT_DB IDENTIFIED BY CF_DB_PASSWORD;"$'\n'"GRANT CONNECT, RESOURCE, DBA TO WSO2AM_APIMGT_DB;"$'\n'"GRANT UNLIMITED TABLESPACE TO WSO2AM_APIMGT_DB;" >> /home/ubuntu/apim/apim210/apim_oracle_user.sql
     echo "CREATE USER WSO2AM_STAT_DB IDENTIFIED BY CF_DB_PASSWORD;"$'\n'"GRANT CONNECT, RESOURCE, DBA TO WSO2AM_STAT_DB;"$'\n'"GRANT UNLIMITED TABLESPACE TO WSO2AM_STAT_DB;" >> /home/ubuntu/apim/apim210/apim_oracle_user.sql
     # Create the tables
-    echo exit | sqlplus64 CF_DB_USERNAME/CF_DB_PASSWORD@//CF_DB_HOST:CF_DB_PORT/WSO2AMDB @/home/ubuntu/apim/apim210/apim_oracle_user.sql
-    echo exit | sqlplus64 WSO2AM_COMMON_DB/CF_DB_PASSWORD@//CF_DB_HOST:CF_DB_PORT/WSO2AMDB @/home/ubuntu/apim/apim210/apim_oracle_common_db.sql
-    echo exit | sqlplus64 WSO2AM_APIMGT_DB/CF_DB_PASSWORD@//CF_DB_HOST:CF_DB_PORT/WSO2AMDB @/home/ubuntu/apim/apim210/apim_oracle_apimgt_db.sql
+    echo exit | sqlplus64 'CF_DB_USERNAME/CF_DB_PASSWORD@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=CF_DB_HOST)(Port=CF_DB_PORT))(CONNECT_DATA=(SID=WSO2AMDB)))' @/home/ubuntu/apim/apim210/apim_oracle_user.sql
+    echo exit | sqlplus64 'WSO2AM_COMMON_DB/CF_DB_PASSWORD@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=CF_DB_HOST)(Port=CF_DB_PORT))(CONNECT_DATA=(SID=WSO2AMDB)))' @/home/ubuntu/apim/apim210/apim_oracle_common_db.sql
+    echo exit | sqlplus64 'WSO2AM_APIMGT_DB/CF_DB_PASSWORD@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=CF_DB_HOST)(Port=CF_DB_PORT))(CONNECT_DATA=(SID=WSO2AMDB)))' @/home/ubuntu/apim/apim210/apim_oracle_apimgt_db.sql
 elif [[ $DB_ENGINE =~ 'oracle-se' ]] && [[ $WSO2_PRODUCT_VERSION = "2.6.0" ]]; then
     # DB Engine : Oracle | Product Version : 2.6.0
     echo "Oracle DB Engine Selected! Running WSO2-APIM 2.6.0 DB Scripts for Oracle..."
@@ -62,9 +62,9 @@ elif [[ $DB_ENGINE =~ 'oracle-se' ]] && [[ $WSO2_PRODUCT_VERSION = "2.6.0" ]]; t
     echo "CREATE USER WSO2AM_APIMGT_DB IDENTIFIED BY CF_DB_PASSWORD;"$'\n'"GRANT CONNECT, RESOURCE, DBA TO WSO2AM_APIMGT_DB;"$'\n'"GRANT UNLIMITED TABLESPACE TO WSO2AM_APIMGT_DB;" >> /home/ubuntu/apim/apim260/apim_oracle_user.sql
     echo "CREATE USER WSO2AM_STAT_DB IDENTIFIED BY CF_DB_PASSWORD;"$'\n'"GRANT CONNECT, RESOURCE, DBA TO WSO2AM_STAT_DB;"$'\n'"GRANT UNLIMITED TABLESPACE TO WSO2AM_STAT_DB;" >> /home/ubuntu/apim/apim260/apim_oracle_user.sql
     # Create the tables
-    echo exit | sqlplus64 CF_DB_USERNAME/CF_DB_PASSWORD@//CF_DB_HOST:CF_DB_PORT/WSO2AMDB @/home/ubuntu/apim/apim260/apim_oracle_user.sql
-    echo exit | sqlplus64 WSO2AM_COMMON_DB/CF_DB_PASSWORD@//CF_DB_HOST:CF_DB_PORT/WSO2AMDB @/home/ubuntu/apim/apim260/apim_oracle_common_db.sql
-    echo exit | sqlplus64 WSO2AM_APIMGT_DB/CF_DB_PASSWORD@//CF_DB_HOST:CF_DB_PORT/WSO2AMDB @/home/ubuntu/apim/apim260/apim_oracle_apimgt_db.sql
+    echo exit | sqlplus64 'CF_DB_USERNAME/CF_DB_PASSWORD@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=CF_DB_HOST)(Port=CF_DB_PORT))(CONNECT_DATA=(SID=WSO2AMDB)))' @/home/ubuntu/apim/apim260/apim_oracle_user.sql
+    echo exit | sqlplus64 'WSO2AM_COMMON_DB/CF_DB_PASSWORD@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=CF_DB_HOST)(Port=CF_DB_PORT))(CONNECT_DATA=(SID=WSO2AMDB)))' @/home/ubuntu/apim/apim260/apim_oracle_common_db.sql
+    echo exit | sqlplus64 'WSO2AM_APIMGT_DB/CF_DB_PASSWORD@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=CF_DB_HOST)(Port=CF_DB_PORT))(CONNECT_DATA=(SID=WSO2AMDB)))' @/home/ubuntu/apim/apim260/apim_oracle_apimgt_db.sql
 elif [[ $DB_ENGINE =~ 'sqlserver-se' ]] && [[ $WSO2_PRODUCT_VERSION = "2.1.0" ]]; then
     # DB Engine : SQLServer | Product Version : 2.1.0
     echo "SQL Server DB Engine Selected! Running WSO2-APIM 2.1.0 DB Scripts for SQL Server..."
