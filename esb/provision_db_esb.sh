@@ -46,9 +46,9 @@ elif [[ $DB_ENGINE =~ 'oracle-se' ]] && [[ $WSO2_PRODUCT_VERSION = "4.9.0" ]]; t
     echo "CREATE USER WSO2ESB_CONFIG_GOV_DB IDENTIFIED BY CF_DB_PASSWORD;"$'\n'"GRANT CONNECT, RESOURCE, DBA TO WSO2ESB_CONFIG_GOV_DB;"$'\n'"GRANT UNLIMITED TABLESPACE TO WSO2ESB_CONFIG_GOV_DB;" >> /home/ubuntu/esb/esb490/esb_oracle_user.sql
     echo "CREATE USER WSO2ESB_USER_DB IDENTIFIED BY CF_DB_PASSWORD;"$'\n'"GRANT CONNECT, RESOURCE, DBA TO WSO2ESB_USER_DB;"$'\n'"GRANT UNLIMITED TABLESPACE TO WSO2ESB_USER_DB;" >> /home/ubuntu/esb/esb490/esb_oracle_user.sql
     # Create the tables
-    echo exit | sqlplus64 CF_DB_USERNAME/CF_DB_PASSWORD@//CF_DB_HOST:CF_DB_PORT/ESBDB @/home/ubuntu/esb/esb490/esb_oracle_user.sql
-    echo exit | sqlplus64 WSO2ESB_USER_DB/CF_DB_PASSWORD@//CF_DB_HOST:CF_DB_PORT/ESBDB @/home/ubuntu/esb/esb490/esb_oracle_user_db.sql
-    echo exit | sqlplus64 WSO2ESB_CONFIG_GOV_DB/CF_DB_PASSWORD@//CF_DB_HOST:CF_DB_PORT/ESBDB @/home/ubuntu/esb/esb490/esb_oracle_config_gov_db.sql
+    echo exit | sqlplus64 'CF_DB_USERNAME/CF_DB_PASSWORD@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=CF_DB_HOST)(Port=CF_DB_PORT))(CONNECT_DATA=(SID=ESBDB)))' @/home/ubuntu/esb/esb490/esb_oracle_user.sql
+    echo exit | sqlplus64 'WSO2ESB_USER_DB/CF_DB_PASSWORD@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=CF_DB_HOST)(Port=CF_DB_PORT))(CONNECT_DATA=(SID=ESBDB)))' @/home/ubuntu/esb/esb490/esb_oracle_user_db.sql
+    echo exit | sqlplus64 'WSO2ESB_CONFIG_GOV_DB/CF_DB_PASSWORD@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=CF_DB_HOST)(Port=CF_DB_PORT))(CONNECT_DATA=(SID=ESBDB)))' @/home/ubuntu/esb/esb490/esb_oracle_config_gov_db.sql
 elif [[ $DB_ENGINE =~ 'oracle-se' ]] && [[ $WSO2_PRODUCT_VERSION = "5.0.0" ]]; then
     # DB Engine : Oracle | Product Version : 5.0.0
     echo "Oracle DB Engine Selected! Running WSO2-ESB 5.0.0 DB Scripts for Oracle..."
@@ -58,9 +58,9 @@ elif [[ $DB_ENGINE =~ 'oracle-se' ]] && [[ $WSO2_PRODUCT_VERSION = "5.0.0" ]]; t
     echo "CREATE USER WSO2ESB_CONFIG_GOV_DB IDENTIFIED BY CF_DB_PASSWORD;"$'\n'"GRANT CONNECT, RESOURCE, DBA TO WSO2ESB_CONFIG_GOV_DB;"$'\n'"GRANT UNLIMITED TABLESPACE TO WSO2ESB_CONFIG_GOV_DB;" >> /home/ubuntu/esb/esb500/esb_oracle_user.sql
     echo "CREATE USER WSO2ESB_USER_DB IDENTIFIED BY CF_DB_PASSWORD;"$'\n'"GRANT CONNECT, RESOURCE, DBA TO WSO2ESB_USER_DB;"$'\n'"GRANT UNLIMITED TABLESPACE TO WSO2ESB_USER_DB;" >> /home/ubuntu/esb/esb500/esb_oracle_user.sql
     # Create the tables
-    echo exit | sqlplus64 CF_DB_USERNAME/CF_DB_PASSWORD@//CF_DB_HOST:CF_DB_PORT/ESBDB @/home/ubuntu/esb/esb500/esb_oracle_user.sql
-    echo exit | sqlplus64 WSO2ESB_USER_DB/CF_DB_PASSWORD@//CF_DB_HOST:CF_DB_PORT/ESBDB @/home/ubuntu/esb/esb500/esb_oracle_user_db.sql
-    echo exit | sqlplus64 WSO2ESB_CONFIG_GOV_DB/CF_DB_PASSWORD@//CF_DB_HOST:CF_DB_PORT/ESBDB @/home/ubuntu/esb/esb500/esb_oracle_config_gov_db.sql
+    echo exit | sqlplus64 'CF_DB_USERNAME/CF_DB_PASSWORD@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=CF_DB_HOST)(Port=CF_DB_PORT))(CONNECT_DATA=(SID=ESBDB)))' @/home/ubuntu/esb/esb500/esb_oracle_user.sql
+    echo exit | sqlplus64 'WSO2ESB_USER_DB/CF_DB_PASSWORD@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=CF_DB_HOST)(Port=CF_DB_PORT))(CONNECT_DATA=(SID=ESBDB)))' @/home/ubuntu/esb/esb500/esb_oracle_user_db.sql
+    echo exit | sqlplus64 'WSO2ESB_CONFIG_GOV_DB/CF_DB_PASSWORD@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=CF_DB_HOST)(Port=CF_DB_PORT))(CONNECT_DATA=(SID=ESBDB)))' @/home/ubuntu/esb/esb500/esb_oracle_config_gov_db.sql
 elif [[ $DB_ENGINE =~ 'sqlserver-se' ]] && [[ $WSO2_PRODUCT_VERSION = "4.9.0" ]]; then
     # DB Engine : SQLServer | Product Version : 4.9.0
     echo "SQL Server DB Engine Selected! Running WSO2-ESB 4.9.0 DB Scripts for SQL Server..."
