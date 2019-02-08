@@ -31,6 +31,16 @@ error_exit()
 
 echo "Database generating process starting..."
 
+
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> D E L E T E  M E <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+db_engine='postgres'
+db_engine_version='5.7'
+wso2_product='wso2is'
+wso2_product_version='5.6.0'
+wso2_product_path="/home/kosala/TG/products"
+db_center_path="./"
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
 # Copy product database scripts
 unzip -q "$wso2_product_path/$wso2_product-$wso2_product_version.zip" -d "$db_center_path/tmp/" || error_exit "${red_font}Error occured during unziping product package. Abort process...${no_color_font}"
 [ -d "$db_center_path/dbscripts" ] && rm -r "$db_center_path/dbscripts"
